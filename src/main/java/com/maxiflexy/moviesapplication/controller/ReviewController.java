@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/movies")
+@RequestMapping("/api/v1/reviews")
 public class ReviewController {
 
     private final ReviewService reviewService;
