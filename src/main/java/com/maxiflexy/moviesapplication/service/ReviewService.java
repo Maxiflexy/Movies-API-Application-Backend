@@ -4,10 +4,13 @@ import com.maxiflexy.moviesapplication.entity.Movie;
 import com.maxiflexy.moviesapplication.entity.Review;
 import com.maxiflexy.moviesapplication.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -25,5 +28,9 @@ public class ReviewService {
                 .first();
 
         return review;
+    }
+
+    public List<Review> getReviewsByMovieId(String imdbId, int page, int size) {
+        return reviewRepository.findByImdbId(imdbId, PageRequest.of(page, size)).getContent();
     }
 }

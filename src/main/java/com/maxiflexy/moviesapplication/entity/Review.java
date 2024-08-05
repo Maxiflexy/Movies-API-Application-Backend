@@ -16,6 +16,8 @@ public class Review {
     @Id
     private ObjectId id;
 
+    private String imdbId;
+
     private String body;
 
     public Review(String body) {
